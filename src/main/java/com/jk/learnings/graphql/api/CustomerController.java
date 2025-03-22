@@ -2,6 +2,7 @@ package com.jk.learnings.graphql.api;
 
 import com.jk.learnings.graphql.entity.Customer;
 import com.jk.learnings.graphql.repository.CustomerRepository;
+import com.jk.learnings.graphql.services.CustomerService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,36 +13,36 @@ import java.util.Optional;
 @RequestMapping("/api/customers")
 public class CustomerController {
 
-    private final CustomerRepository customerRepository;
+    private final CustomerService customerService;
 
-    public CustomerController(CustomerRepository customerRepository) {
-        this.customerRepository = customerRepository;
+    public CustomerController(CustomerService customerService) {
+        this.customerService = customerService;
     }
 
     // GET all customers
     @GetMapping
     public List<Customer> getAllCustomers() {
-        return customerRepository.findAll();
+        return customerService.getCustomers();
     }
 
     // GET customer by ID
     @GetMapping("/{id}")
     public ResponseEntity<Customer> getCustomerById(@PathVariable String id) {
-        Optional<Customer> customer = customerRepository.findById(id);
-        return customer.map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+        Optional<Customer> customer = customerService.getCustomerById(id);
+        return ResponseEntity.ok(customer.orElse(null));
     }
 
     // CREATE a new customer
     @PostMapping
     public Customer createCustomer(@RequestBody Customer customer) {
-        return customerRepository.save(customer);
+        customer = customerService.createCustomer(customer);
+        return customer;
     }
 
     // UPDATE customer
     @PutMapping("/{id}")
     public ResponseEntity<Customer> updateCustomer(@PathVariable String id, @RequestBody Customer updatedCustomer) {
-        return customerRepository.findById(id)
+        return customerService.getCustomerById(id)
                 .map(existing -> {
                     existing.setName(updatedCustomer.getName());
                     existing.setFirstName(updatedCustomer.getFirstName());
@@ -52,7 +53,7 @@ public class CustomerController {
                     existing.setContactPhone(updatedCustomer.getContactPhone());
                     existing.setComments(updatedCustomer.getComments());
                     existing.setCustomerType(updatedCustomer.getCustomerType());
-                    return ResponseEntity.ok(customerRepository.save(existing));
+                    return ResponseEntity.ok(customerService.createCustomer(existing));
                 })
                 .orElse(ResponseEntity.notFound().build());
     }
@@ -60,8 +61,8 @@ public class CustomerController {
     // DELETE customer
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCustomer(@PathVariable String id) {
-        if (customerRepository.existsById(id)) {
-            customerRepository.deleteById(id);
+        if (customerService.getCustomerById(id).isPresent()) {
+            customerService.deleteCustomer(id);
             return ResponseEntity.noContent().build();
         }
         return ResponseEntity.notFound().build();
