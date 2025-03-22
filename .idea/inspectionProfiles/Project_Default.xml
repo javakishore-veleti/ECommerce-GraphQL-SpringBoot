@@ -8,16 +8,19 @@
         <list>
           <option value="ECommerce-GraphQL-SpringBoot" />
           <option value="ECommerce-GraphQL-SpringBoot" />
+          <option value="ECommerce-GraphQL-SpringBoot" />
         </list>
       </option>
       <option name="ignoredPackages">
         <list>
           <option value="org.apache.commons:commons-compress:1.24.0" />
           <option value="com.google.guava:guava:19.0" />
+          <option value="com.google.guava:guava:26.0-jre" />
         </list>
       </option>
       <option name="ignoredReasons">
         <list>
+          <option value="Not exploitable" />
           <option value="Not exploitable" />
           <option value="Not exploitable" />
         </list>
