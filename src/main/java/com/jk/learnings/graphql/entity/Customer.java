@@ -2,6 +2,7 @@ package com.jk.learnings.graphql.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.PreUpdate;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -36,4 +37,9 @@ public class Customer extends BaseEntity {
 
     @Column(name = "comments", length = 5000)
     private String comments;
+
+    @PreUpdate
+    public void preUpdate() {
+        super.onUpdate();
+    }
 }

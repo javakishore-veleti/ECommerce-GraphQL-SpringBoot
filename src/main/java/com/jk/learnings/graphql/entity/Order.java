@@ -1,8 +1,6 @@
 package com.jk.learnings.graphql.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.PrePersist;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang3.ObjectUtils;
@@ -29,8 +27,20 @@ public class Order extends BaseEntity {
     @Column(name = "delivered_date")
     private LocalDateTime deliveredDate;
 
+    @ManyToOne
+    @JoinColumn(name = "payment_id")
+    private CustomerPayment payment;
+
+
     @PrePersist
     public void prePersist() {
+        super.onCreate();
+        this.orderDate = ObjectUtils.defaultIfNull(this.orderDate, LocalDateTime.now());
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        super.onUpdate();
         this.orderDate = ObjectUtils.defaultIfNull(this.orderDate, LocalDateTime.now());
     }
 }

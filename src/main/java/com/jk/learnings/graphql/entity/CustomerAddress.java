@@ -2,6 +2,8 @@ package com.jk.learnings.graphql.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -30,4 +32,14 @@ public class CustomerAddress extends BaseEntity {
 
     @Column(name = "type", nullable = false, length = 50)
     private String type;
+
+    @PrePersist
+    public void preCreate() {
+        super.onCreate();
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        super.onUpdate();
+    }
 }

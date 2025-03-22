@@ -2,8 +2,6 @@ package com.jk.learnings.graphql.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Id;
-import jakarta.persistence.PrePersist;
-import jakarta.persistence.PreUpdate;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang3.ObjectUtils;
@@ -36,14 +34,12 @@ public class BaseEntity {
     @Column(name = "deleted", nullable = false)
     private boolean deleted = false; // Default to false
 
-    @PrePersist
     protected void onCreate() {
         this.createdDate = ObjectUtils.defaultIfNull(this.createdDate, LocalDateTime.now());
         this.status = ObjectUtils.defaultIfNull(this.status, "IN_ACTIVE");
         this.deleted = ObjectUtils.defaultIfNull(this.deleted, false);
     }
 
-    @PreUpdate
     protected void onUpdate() {
         this.updatedDate = LocalDateTime.now();
     }

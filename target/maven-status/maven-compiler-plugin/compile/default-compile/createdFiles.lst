@@ -2,5 +2,7 @@ com/jk/learnings/graphql/entity/CustomerAddress.class
 com/jk/learnings/graphql/entity/Customer.class
 com/jk/learnings/graphql/ECommerceGraphQlAppMain.class
 com/jk/learnings/graphql/entity/BaseEntity.class
+com/jk/learnings/graphql/entity/CustomerPayment.class
 com/jk/learnings/graphql/entity/Product.class
+com/jk/learnings/graphql/entity/OrderLine.class
 com/jk/learnings/graphql/entity/Order.class

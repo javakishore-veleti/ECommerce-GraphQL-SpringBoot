@@ -2,5 +2,7 @@
 /Users/AK/ak/personal/my_github/jk_hithub/Udemy-HandsOn/ECommerce-GraphQL-SpringBoot/src/main/java/com/jk/learnings/graphql/entity/BaseEntity.java
 /Users/AK/ak/personal/my_github/jk_hithub/Udemy-HandsOn/ECommerce-GraphQL-SpringBoot/src/main/java/com/jk/learnings/graphql/entity/Customer.java
 /Users/AK/ak/personal/my_github/jk_hithub/Udemy-HandsOn/ECommerce-GraphQL-SpringBoot/src/main/java/com/jk/learnings/graphql/entity/CustomerAddress.java
+/Users/AK/ak/personal/my_github/jk_hithub/Udemy-HandsOn/ECommerce-GraphQL-SpringBoot/src/main/java/com/jk/learnings/graphql/entity/CustomerPayment.java
 /Users/AK/ak/personal/my_github/jk_hithub/Udemy-HandsOn/ECommerce-GraphQL-SpringBoot/src/main/java/com/jk/learnings/graphql/entity/Order.java
+/Users/AK/ak/personal/my_github/jk_hithub/Udemy-HandsOn/ECommerce-GraphQL-SpringBoot/src/main/java/com/jk/learnings/graphql/entity/OrderLine.java
 /Users/AK/ak/personal/my_github/jk_hithub/Udemy-HandsOn/ECommerce-GraphQL-SpringBoot/src/main/java/com/jk/learnings/graphql/entity/Product.java
