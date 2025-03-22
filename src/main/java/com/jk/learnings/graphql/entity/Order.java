@@ -27,11 +27,6 @@ public class Order extends BaseEntity {
     @Column(name = "delivered_date")
     private LocalDateTime deliveredDate;
 
-    @ManyToOne
-    @JoinColumn(name = "payment_id")
-    private CustomerPayment payment;
-
-
     @PrePersist
     public void prePersist() {
         super.onCreate();
