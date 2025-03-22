@@ -1,7 +1,6 @@
 package com.jk.learnings.graphql.api;
 
 import com.jk.learnings.graphql.entity.Customer;
-import com.jk.learnings.graphql.repository.CustomerRepository;
 import com.jk.learnings.graphql.services.CustomerService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
