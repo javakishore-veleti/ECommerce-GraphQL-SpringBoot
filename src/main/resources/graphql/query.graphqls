@@ -1,0 +1,39 @@
+type Product {
+    id: ID!
+    name: String!
+}
+
+type Customer {
+    id: ID!
+    name: String!
+}
+
+type CustomerAddress {
+    id: ID!
+    address: String!
+}
+
+type Order {
+    id: ID!
+    product: Product!
+}
+
+type OrderLine {
+    id: ID!
+    order: Order!
+    quantity: Int!
+    price: Float!
+    total: Float!
+}
+
+type CustomerPayment {
+    id: ID!
+    customer: Customer!
+    amount: Float!
+}
+
+type Query {
+    products: [Product]
+    customers: [Customer]
+    customerAddresses: [CustomerAddress]
+}

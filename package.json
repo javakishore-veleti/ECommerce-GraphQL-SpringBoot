@@ -1,0 +1,9 @@
+{
+  "name": "my-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "graphite-start": "CiCd/epheremal/Graphite/graphite_start.sh",
+    "graphite-stop": "CiCd/epheremal/Graphite/graphite_stop.sh"
+  }
+}
