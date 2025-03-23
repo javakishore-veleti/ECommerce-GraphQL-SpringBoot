@@ -1,7 +1,7 @@
 package com.jk.learnings.graphql.services.resolvers.impl;
 
-import com.coxautodev.graphql.tools.GraphQLResolver;
 import com.jk.learnings.graphql.queires.dtos.CustomerResponse;
+import graphql.kickstart.tools.GraphQLResolver;
 import org.springframework.stereotype.Service;
 
 @SuppressWarnings("ALL")
