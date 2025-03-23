@@ -2,10 +2,10 @@ package com.jk.learnings.graphql.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang3.ObjectUtils;
-import jakarta.persistence.MappedSuperclass;
 
 import java.time.LocalDateTime;
 

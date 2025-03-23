@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Optional;
 
 public interface CustomerService {
-    public Optional<Customer> getCustomerById(String id);
-    public List<Customer> getCustomers();
-    public Customer createCustomer(Customer customer);
-    public Customer updateCustomer(Customer customer);
-    public String deleteCustomer(String id);
+    Optional<Customer> getCustomerById(String id);
+    List<Customer> getCustomers();
+    Customer createCustomer(Customer customer);
+    Customer updateCustomer(Customer customer);
+    String deleteCustomer(String id);
 }

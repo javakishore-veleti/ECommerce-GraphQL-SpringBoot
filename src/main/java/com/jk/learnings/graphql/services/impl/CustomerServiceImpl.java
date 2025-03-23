@@ -6,6 +6,7 @@ import com.jk.learnings.graphql.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,12 +19,15 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Optional<Customer> getCustomerById(String id) {
-        return Optional.of(customerRepository.getReferenceById(id));
+        return customerRepository.findById(id);
     }
 
     @Override
     public List<Customer> getCustomers() {
-        return customerRepository.findAll();
+        Iterable<Customer> customers = customerRepository.findAll();
+        List<Customer> customersList = new ArrayList<>();
+        customers.forEach(customersList::add);
+        return customersList;
     }
 
     @Override
@@ -34,7 +38,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer updateCustomer(Customer customer) {
-        customer = customerRepository.saveAndFlush(customer);
+        customer = customerRepository.save(customer);
         return customer;
     }
 
